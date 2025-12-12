@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -2;
+    position: relative;
+}
+.stars{
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.star{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+.vg{
+    height: 1px;
+    position: absolute;
+    width: 1px;
+    border-radius: 50%;
+    top: 80px;
+    right: 80px;
+    z-index: -1;
+    box-shadow: 0px 0px 356px 540px rgba(5, 88, 95,0.57);
+    animation: h 6.3s ease-out infinite;
+}
+.vg2{
+    height: 1px;
+    position: absolute;
+    width: 1px;
+    border-radius: 50%;
+    bottom: 80px;
+    left: 80px;
+    z-index: -1;
+    box-shadow: 0px 0px 356px 540px rgba(92, 6, 100, 0.534);
+    animation: h 6.3s ease-out infinite reverse;
+}
+.x{
+    width: 1190px;
+    height: 900px;
+    border: 2px solid rgba(255, 255, 255, 0.404);
+    background-color: rgb(111 111 111 / 28%);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    position: relative;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{display: none;}
+
+
+.mg{/*mask: url(ee.png) no-repeat 50% 50%;*/box-sizing:content-box;height: 35px; width: auto; background-image: linear-gradient(to right, rgb(145, 50, 168), rgb(187, 94, 207));transform: translateX(15px); margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+p {
+    color: white;
+    margin: 3px 10px;
+}
+input[type=text] {
+    padding: 15px;
+    border-radius: 4px;
+    color: white;
+    width: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(1px);
+    border: none;
+    /* transition: border .3s; */
+    margin-top: 1px;
+}
+input[type=text]:focus{
+    border: 1px solid rgba(255,255,255,0.4);
+    margin-top: 0;
+    outline: none;
+}
+
+h1{width: 25ch;text-align: center;background-image: linear-gradient(45deg, #00ffff, #ff00ff, #00ff88);font-size: 45px;color: transparent;background-clip: text;text-shadow:1px 1px 45px #00ffff82;font-family: "Orbitron"; font-weight: bold;margin: 35px auto 0 auto;/*position: absolute;top: 35px;left: 50%;transform: translateX(-50%);*/}
+form {
+    /* width: 100%; */
+    height: 60px;
+    margin-left: calc(50% - 120px);
+}
+#c{width: auto;}
+#c,#ce{margin-bottom: auto;}    
+@keyframes h {
+    0%, 100% { transform: translate(0px, 0px); }
+    50% { transform: translate(20px, 250px); }
+}
+
+@media (max-width: 1244px) {
+    .x {width: 870px;}
+    h1{width:auto;font-size: 25px;}
+}
+@media (max-width: 760px) {
+    .x {width: 100%;height: 100%; background-color: transparent;border: none;}
+    .vg {box-shadow: 0px 0px 356px 540px rgba(5, 88, 95, 0.644);}
+    .vg2{box-shadow: 0px 0px 356px 540px rgba(92, 6, 100, 0.651);}
+    form{margin-bottom: 1.3rem;}
+    input[type=text]{
+        border: 1px solid rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.2);
+        backdrop-filter: blue(1px);
+    }
+    input[type=text]:focus{
+        background-color: rgba(255, 255, 255, 0.4);
+        outline: none;
+    }
+    .vg{box-shadow: 0px 0px 490px 200px rgba(5, 88, 95, 0.644);;}
+    .vg2{box-shadow: 0px 0px 490px 200px rgba(92, 6, 100, 0.651);;}
+    
+}
+@media (max-width: 460px){
+    body{ height: 100dvh; width: 100dvw;}
+    
+    
+    input[type=text]{
+        border: 1px solid rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.2);
+        backdrop-filter: blue(1px);
+    }
+    input[type=text]:focus{
+        background-color: rgba(255, 255, 255, 0.4);
+        outline: none;
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% { opacity: 1; }
+}
