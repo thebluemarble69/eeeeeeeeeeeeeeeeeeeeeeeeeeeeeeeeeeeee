@@ -39,3 +39,6 @@ def do() -> list:
     for q in fuck2:
         fuck.append(q)
     return fuck
+
+# dont clone this repo this is only for kids ;>
+
