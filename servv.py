@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from html import escape
+from strawberry import *
 import urllib.parse
 import datetime
 
@@ -20,71 +21,6 @@ eeeee2 = """
 </body>
 </html>
 """
-
-def bb(d: str):
-    print(d)
-
-# def rite(ata: str, mg: str, ad: str):
-#     try:
-#         n2 = open("history.log", "a")
-#         n2.write(ata + "-" + ad + " said: " + mg + "\n")
-#         n2.close()
-#         # print(ata + "-" + ad + " said: " + mg)
-#     except Exception as e:
-#         print("Error alela ahe!!", e)               # gone to sleep
-def rite(mg: str):
-    try:
-        n2 = open("history.log", "a")
-        n2.write(mg + "\n")
-        n2.close()
-    except Exception as e:
-        print("error ale la ahe!!", e)
-
-
-def get_temp(v: str) -> str:
-    con = "<div class='mg'><p>{}</p></div>"
-    return con.format(v)
-
-# def gt_fle() -> list:
-#     chat.clear()
-#     y = open("history.log", "r")
-#     for _ in y.readlines():
-#         if str(_)[32].isnumeric():
-#             try:
-#                 b = str(_).strip("\n")
-#                 efg = urllib.parse.unquote(b[39:])
-#                 efg = escape(efg)
-#                 chat.append(efg)
-#             except:
-#                 print("Error in file!")
-#         else:
-#             try:
-#                 c = str(_).strip("\n")                                  #also gone to sleep
-#                 chat.append(escape(c[38:]))
-#             except:
-#                 print("error in file!")
-#     y.close()
-#     return chat
-
-def gt_fle() -> list:
-    chat.clear()
-    y = open("history.log", "r")
-    for _ in y.readlines():
-        try:
-            b = str(_).strip("\n")
-            chat.append(b)
-        except:
-            bb("error in file")
-            break
-    y.close()
-    return chat
-
-def do() -> list:
-    fuck = []
-    fuck2 = gt_fle()
-    for q in fuck2:
-        fuck.append(q)
-    return fuck
 
 chat=[]
 
@@ -169,11 +105,18 @@ class XYZ(BaseHTTPRequestHandler):
             f = self.rfile.read(leng)
             #print(f)
             xe = self.client_address[0]
-            data = urllib.parse.parse_qs(f.decode("utf-8")).get("msg")[0]                           #f.decode("utf-8").split("=")[1]                    #urllib.parse.unquote(f.decode("utf-8").split("=")[1]
+            try:
+                global data
+                data = urllib.parse.parse_qs(f.decode("utf-8")).get("msg")[0]                           #f.decode("utf-8").split("=")[1]                    #urllib.parse.unquote(f.decode("utf-8").split("=")[1]
+            except Exception:
+                self.send_response(301)
+                self.send_header("Location", "/")
+                self.end_headers()
+                print("ERROR", Exception)
             datta = str(datetime.datetime.now())[:19]
             print(data)
             bb("data:     " + f.decode("utf-8"))
-            rite(str(urllib.parse.quote(data)))        # data = str(f.decode("utf-8").split("=")[1]))
+            rite(datta,str(urllib.parse.quote(data)), str(xe))        # data = str(f.decode("utf-8").split("=")[1]))
             # print(f"data: {data}");print(f"datta: {datta}"); print(f"xe: {xe}")
             print(urllib.parse.parse_qs(f.decode('utf-8')))
             self.send_response(200)
@@ -192,7 +135,7 @@ class XYZ(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"FUCK YOU BITCH")
 try:
-    x = HTTPServer(("0.0.0.0",25565), XYZ)
+    x = HTTPServer(("192.168.1.38",25565), XYZ)
     x.serve_forever()
 except KeyboardInterrupt:
     print("go")
