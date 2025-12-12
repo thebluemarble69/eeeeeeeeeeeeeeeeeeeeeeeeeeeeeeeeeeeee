@@ -8,14 +8,10 @@ import sys
 
 eeeee2 = """
     <form style="position:absolute;bottom:0;" action="/e" method="post">
-        <input id="c" type="text" placeholder="xyz" name="msg">
+        <input id="c" type="text" placeholder="xyz" name="msg" required>
         <input id="ce" type="submit" value="submit">
     </form>
     </div>
-    <!-- <form method="post" action="/">
-        <input type="text" name="msg" placeholder="XYZ" required>
-        <input type="submit" value="submit">
-    </form> -->
 
 
     <script src="./s.js"></script>
