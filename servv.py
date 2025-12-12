@@ -93,6 +93,7 @@ class XYZ(BaseHTTPRequestHandler):
                 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
                 <link rel="stylesheet" href="./styIle.css">
                 <title>Chattttts</title>
+                <noscript><b>FUck u btch use <span style="color:aqua">javascript</span></b></noscript>
             </head>
             <body>
                 <div class="stars" id="stars"></div>
