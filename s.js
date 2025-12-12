@@ -9,3 +9,5 @@ for (let i = 0; i < 100; i++) {
     star.style.animationDelay = Math.random() * 3 + 's';
     starsContainer.appendChild(star);
 }
+
+// do not clone this repo this is for klds only
