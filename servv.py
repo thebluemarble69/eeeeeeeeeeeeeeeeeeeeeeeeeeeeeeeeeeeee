@@ -3,6 +3,7 @@ from html import escape
 from strawberry import *
 import urllib.parse
 import datetime
+import sys
 
 
 eeeee2 = """
@@ -135,8 +136,9 @@ class XYZ(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"FUCK YOU BITCH")
 try:
-    x = HTTPServer(("192.168.1.38",25565), XYZ)
+    x = HTTPServer(("0.0.0.0",25565), XYZ)
     x.serve_forever()
 except KeyboardInterrupt:
-    print("go")
-    exit()
+    print("Exitting now.")
+
+    sys.exit()
