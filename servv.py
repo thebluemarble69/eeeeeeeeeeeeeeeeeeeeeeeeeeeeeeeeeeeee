@@ -117,7 +117,7 @@ class XYZ(BaseHTTPRequestHandler):
             rite(datta,str(urllib.parse.quote(data)), str(xe))        # data = str(f.decode("utf-8").split("=")[1]))
             # print(f"data: {data}");print(f"datta: {datta}"); print(f"xe: {xe}")
             print(urllib.parse.parse_qs(f.decode('utf-8')))
-            self.send_response(200)
+            self.send_response(201)
             self.send_header("Content-type", "text/html")
             self.end_headers()
             # with open('after.html', 'r') as fd:
@@ -139,3 +139,4 @@ except KeyboardInterrupt:
     print("Exitting now.")
 
     sys.exit()
+
